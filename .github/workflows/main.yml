@@ -1,4 +1,16 @@
-- name: run_cmd
-  run: |
-    ip a
-    curl ip.sb
+name: run_cmd
+
+on:
+    workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run_bash_cmd
+        env:
+          GO111MODULE: on
+        run: |
+          ip a 
+          curl ip.sb
+        shell: bash
